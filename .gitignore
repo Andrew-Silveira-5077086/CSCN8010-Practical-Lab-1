@@ -1,0 +1,19 @@
+﻿# Secrets
+**/.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Jupyter
+**/.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# Outputs (generated)
+exports/
+notebook/exports/
+notebooks/exports/
+**/*.xlsx
