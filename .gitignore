@@ -1,19 +1,7 @@
-﻿# Secrets
-**/.env
-
-# Python
-__pycache__/
-*.pyc
-.venv/
-
-# Jupyter
-**/.ipynb_checkpoints/
-
-# VS Code
-.vscode/
-
-# Outputs (generated)
+﻿.venv/
+.venv-test/
+.env
 exports/
 notebook/exports/
-notebooks/exports/
-**/*.xlsx
+__pycache__/
+*.ipynb_checkpoints
