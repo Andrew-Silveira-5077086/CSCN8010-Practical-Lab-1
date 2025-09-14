@@ -4,7 +4,7 @@
 Live current readings are streamed from a CSV “controller feed” into a Neon (Postgres) database and visualized as a rolling window chart. A lightweight anomaly placeholder (z-score) flags potential maintenance alerts.
 
 ## Team
-- **Team #**: <Group 2>
+- **Team #**: Group 2
 - **Members**: Andrew Silveira, Rohit Krishnamurthy Iyer, Sabrina Ronnie George Karippatt
 
 ## Dataset
