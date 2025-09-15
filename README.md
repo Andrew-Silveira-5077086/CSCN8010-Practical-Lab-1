@@ -70,13 +70,36 @@ DATABASE_URL=postgresql+psycopg2://USER:PASSWORD@HOST/neondb?sslmode=require
 ## Run the notebook
 Open `notebook/DataStreamVisualization_workshop.ipynb`, then run in order:
 
- 1. Cells 1–5 – Setup, DB schema, and optional CSV ingest
- 2. Cells 6a–6b – Streaming simulator + live playback (rolling chart)
- 3. Cells 7–10 – Sanity queries, CAT* views, coverage summaries
- 4. Cells A–E – DB-backed analysis (smoothing, charts, summaries)
- 5. Cell 12 – Predictive analytics placeholder (z-score alerts)
- 6. Cells 13A/13B – Phrase tests (“latest per axis”, “1-min peak”)
- 7. Cells 11.1–11.2 – Exports (CSV + Excel)
+1. **Cell 1** – Configure paths & knobs  
+   Set `CSV_PATH`, `TICK_SECONDS`, `WINDOW_ROWS`, plotting options.
+2. **Cell 2** – Connect to Neon  
+   Builds the SQLAlchemy `engine` (uses `.env` `DATABASE_URL` if present).
+3. **Cell 2.1** – Helper functions  
+   Convenience helpers like `read_sql_df(...)`, `query_value(...)`.
+4. **Cell 3** – Create schema  
+   DDL for `axes_dim` and `readings_fact`.
+5. **Cell 4** – Seed `axes_dim`  
+   Inserts Axis IDs/names; drives schema-locked plotting/ingest.
+6. **Cell 5** – (Optional) Bulk ingest CSV → DB  
+   UTC-safe, chunked ingest. *Skip if you only want live playback in Cell 6b.*
+7. **Cell 6a** – `StreamingSimulator` class  
+   Provides `nextDataPoint()` for the driver cell.
+8. **Cell 6b** – Live playback + (optional) DB ingest  
+   Rolling window chart; batched inserts if `INGEST_TO_DB=True`.  
+   *Knobs:* `TICK_SECONDS`, `WINDOW_ROWS`, `INGEST_TO_DB`, `X_AXIS_TICKS=("fixed"|"auto")`, `STACKED`.
+9. **Cells 7–10** – Sanity checks, CAT* views, data-health summaries
+10. **Cell A** – Setup & Database Connection (reuse engine, notebook options)  
+11. **Cell B** – Load Streamed Data from DB (verify persistence)  
+12. **Cell C** – Optional smoothing (1-min resample)  
+13. **Cell D** – Summary chart (time series per axis)  
+14. **Cell E** – Per-axis summary (table + bar chart)
+15. **Cell 12** – Predictive analytics placeholder  
+    Simple z-score alerts over the recent window.
+16. **Cell 13A / 13B** – Phrase tests  
+    “Show latest per axis” and “Show 1-minute peak”.
+17. **Cells 11.1–11.2** – Exports  
+    Paged full CSV + Excel sample (summaries + latest).
+
 
 # Phrase tests (expected)
 “Show latest per axis” (Cell 13A): one row per axis with the newest timestamp.
