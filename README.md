@@ -6,7 +6,7 @@ A lightweight anomaly placeholder (z-score) flags potential maintenance alerts.
 
 ## Team
 - **Team #**: Group 2
-- **Members**: Andrew Silveira, Rohit Krishnamurthy Iyer, Sabrina Ronnie George Karippatt
+- **Members**: Andrew Silveira - Student #: 5077086
 
 ## Dataset
 - **Source**: CSV provided with the workshop (see `data/`).
