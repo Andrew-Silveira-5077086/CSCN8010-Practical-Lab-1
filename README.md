@@ -122,3 +122,10 @@ CW_100925/
 ├─ requirements.txt
 ├─ .gitignore
 └─ README.md
+
+# Pratical Lab 1
+
+This lab os to simulate a predictive maintenance scenario, where alerts and errors can falg the user with potential failures
+
+![Regression model](./images/axis1.png)
+![Redifual model](./images/residual-axis1.png)
